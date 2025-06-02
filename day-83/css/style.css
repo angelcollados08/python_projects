@@ -1,0 +1,67 @@
+.gradient-background {
+  background: linear-gradient(300deg, #00bfff, #ff4c68, #ef8172);
+  background-size: 180% 180%;
+  animation: gradient-animation 18s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.icon-square {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+}
+
+.profile-img {
+  height: 100px;
+  border-radius: 50%;
+}
+
+.btn-outline-success {
+  color: rgb(40, 154, 211);
+  --bs-btn-hover-bg: #1498ea;
+  border-color: #1498ea;
+  width: 150px;
+  border-radius: 50px;
+  --bs-btn-active-bg: #059efd;
+}
+
+.btn:hover {
+  color: var(--bs-btn-hover-color);
+  background-color: #1268eb;
+  border-color: #174eb2;
+}
+
+.center-screen {
+  margin-top: 100px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.bg-body-tertiary {
+  --bs-bg-opacity: 1;
+  background-color: white;
+}
+
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-.5 * var(--bs-gutter-x));
+  margin-left: calc(-.5 * var(--bs-gutter-x));
+}

@@ -1,0 +1,65 @@
+{% block content %}
+{% include "header.html" %}
+
+<head>
+    
+</head>
+<body>
+
+    <!-- {% macro input(name, value='', type='text', size=20) -%}
+    <input type="{{ type }}" name="{{ name }}" value="{{
+        value|e }}" size="{{ size }}">
+    {%- endmacro %} -->
+
+    <div class="container" style=" background: #843ab8;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) 0 1px 3px, inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    background-image: url(/assets/noise-3ad980a….png), linear-gradient(#a648c4, #7930a7);
+    background-size: 50px 50px, auto; max-width: 100%;">
+        <div class="row">
+          <div class="col" style="margin: 10px; text-align: start;">
+            <h2 style="color: #fff">My to-do List {{date}}</h2>
+          </div>
+          <div class="col" style="text-align: end; margin: 10px;"> 
+            <button style="background: #1caa59;color: #fff; --bs-btn-disabled-opacity: 1;" type="button" class="btn btn-lg btn-primary" disabled>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill-1" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                </svg>
+                Save this List
+            </button>
+          </div>
+          
+        </div>
+      </div>
+
+    <div class="container" style="margin: 10px;">
+        <form action="{{url_for('new_task')}}" method="post">
+            <input  style="border-width: 0px; font-size: 35px; width: 100%;" type="text" placeholder="Write your new task here..." id="subdomain" name="input_task"/>
+        </form>
+    </div>
+
+    <div class="container">
+        {% for element in all_check%}
+        <div class="row" style="text-align: left;">
+
+            <h1>
+                <a href="{{url_for('mark_check',check_id = element.id)}}" style="color: transparent;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                  </svg>
+                </a>
+                  {% if element.is_done: %}
+                  DONE
+                  {% else: %}
+                  {{element.name}}
+                  {% endif %}
+
+            </h1>
+       </div>  
+        {% endfor %}
+
+
+    </div>
+
+</body>
+
+{% endblock%}
